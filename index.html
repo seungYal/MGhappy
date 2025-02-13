@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주간 성경 구절</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>홍보</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <h1 id="today"></h1>
-  <h2>이번 주:</h2>
-  <ul id="weekData"></ul>
-  <h1>이번주 성경 구절</h1>
-  <div id="weekVerse"></div>
-    <script src="script.js"></script> <!-- JS 파일 연결 -->
+    <div class="carousel">
+        <div class="image-container">
+            <img src="image/img1.jpg" class="slide active">
+            <img src="image/img2.jpg" class="slide">
+            <img src="image/img3.jpg" class="slide">
+            <img src="image/img4.jpg" class="slide">
+        </div>
+        <button class="prev" onclick="prevSlide()">&#9665;</button>
+        <button class="next" onclick="nextSlide()">&#9655;</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
