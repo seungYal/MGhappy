@@ -9,7 +9,7 @@ body {
 
 .carousel {
   position: relative;
-  width: 90vw;  /* 화면 너비의 90% */
+  width: 97vw;  /* 화면 너비의 90% */
   max-width: 600px; /* 최대 크기 제한 */
   height: 80vh; /* 화면 높이의 80% */
   max-height: 800px; /* 최대 높이 제한 */
