@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>인물 홍보 페이지</title>
+    <title>새마을금고 이사장 후보 안내</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        ul{
+            list-style:none;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: rgba(65, 199, 244, 1);
@@ -24,10 +27,10 @@
             z-index: 9999;
         }
         #loading-logo {
-            width: 150px; /* 로고 크기 조절 */
+            width: 150px; /* 로고 크기 */
             height: auto;
         }
-        /* 본문 숨기기 (초기 상태) */
+        /* 본문 숨기기 */
         #content {
             display: none;
         }
@@ -41,6 +44,22 @@
             color: white;
             font-size: 16px;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .logo {
+            position: absolute;
+            left: 0px;
+            width: 85px;
+            height: 60px;
+            background: url(logoText.jpg) center no-repeat;
+            background-size: cover;
+        }
+        .guideText {
+            position: absolute;
+            right: 12px;
+        }
+        .guideText li {
+            text-align: right;
         }
         .slider-container {
             position: relative;
@@ -67,20 +86,28 @@
 
     <!-- 로딩 화면 -->
     <div id="loading-screen">
-        <img id="loading-logo" src="logo.png" alt="로딩 중..."> 
+        <img id="loading-logo" src="logo.jpg" alt="로딩 중..."> 
     </div>
 
     <!-- 본문 내용 -->
     <div id="content">
         <div class="banner">
-            <span>광주새마을금고 이사장 후보 - 민 경 남</span>
+            <div class="logo">
+            </div>
+            <div class="guideText">
+                <ul>
+                    <li>광주새마을금고 이사장 후보</li>
+                    <li>민 경 남</li>
+                </ul>
+            </div>
         </div>
         
         <div class="slider-container" id="slider">
             <div class="slides">
-                <div class="slide"><img src="low-quality-placeholder1.jpg" data-src="image1.jpg" class="lazyload" alt="Slide 1"></div>
-                <div class="slide"><img src="low-quality-placeholder2.jpg" data-src="image2.jpg" class="lazyload" alt="Slide 2"></div>
-                <div class="slide"><img src="low-quality-placeholder3.jpg" data-src="image3.jpg" class="lazyload" alt="Slide 3"></div>
+                <div class="slide"><img src="low-quality-placeholder1.png" data-src="image1.png" class="lazyload" alt="Slide 1"></div>
+                <div class="slide"><img src="low-quality-placeholder2.png" data-src="image2.png" class="lazyload" alt="Slide 2"></div>
+                <div class="slide"><img src="low-quality-placeholder3.png" data-src="image3.png" class="lazyload" alt="Slide 3"></div>
+                <div class="slide"><img src="low-quality-placeholder4.png" data-src="image4.png" class="lazyload" alt="Slide 4"></div> <!-- 추가된 슬라이드 -->
             </div>
         </div>
     </div>
