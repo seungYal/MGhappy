@@ -49,13 +49,22 @@
     
     <div class="slider-container" id="slider">
         <div class="slides">
-            <div class="slide"><img src="image1.jpg" alt="Slide 1"></div>
-            <div class="slide"><img src="image2.jpg" alt="Slide 2"></div>
-            <div class="slide"><img src="image3.jpg" alt="Slide 3"></div>
+            <div class="slide"><img src="low-quality-placeholder1.jpg" data-src="image1.jpg" class="lazyload" alt="Slide 1"></div>
+            <div class="slide"><img src="low-quality-placeholder2.jpg" data-src="image2.jpg" class="lazyload" alt="Slide 2"></div>
+            <div class="slide"><img src="low-quality-placeholder3.jpg" data-src="image3.jpg" class="lazyload" alt="Slide 3"></div>
         </div>
     </div>
     
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll(".lazyload");
+            lazyImages.forEach(img => {
+                const realSrc = img.getAttribute("data-src");
+                img.setAttribute("src", realSrc);
+                img.removeAttribute("data-src");
+            });
+        });
+        
         let index = 0;
         const slides = document.querySelector('.slides');
         const totalSlides = document.querySelectorAll('.slide').length;
