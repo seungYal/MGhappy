@@ -6,10 +6,30 @@
     <title>인물 홍보 페이지</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
+        body {
             font-family: Arial, sans-serif;
             background-color: rgba(65, 199, 244, 1);
-            display: none; /* 초기에는 숨김 */
+        }
+        /* 로딩 화면 스타일 */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white; /* 로딩 배경색 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #loading-logo {
+            width: 150px; /* 로고 크기 조절 */
+            height: auto;
+        }
+        /* 본문 숨기기 (초기 상태) */
+        #content {
+            display: none;
         }
         .banner {
             width: 100%;
@@ -44,15 +64,24 @@
     </style>
 </head>
 <body>
-    <div class="banner">
-        <span>광주새마을금고 이사장 후보 - 민 경 남</span>
+
+    <!-- 로딩 화면 -->
+    <div id="loading-screen">
+        <img id="loading-logo" src="logo.png" alt="로딩 중..."> 
     </div>
-    
-    <div class="slider-container" id="slider">
-        <div class="slides">
-            <div class="slide"><img src="low-quality-placeholder1.jpg" data-src="image1.jpg" class="lazyload" alt="Slide 1"></div>
-            <div class="slide"><img src="low-quality-placeholder2.jpg" data-src="image2.jpg" class="lazyload" alt="Slide 2"></div>
-            <div class="slide"><img src="low-quality-placeholder3.jpg" data-src="image3.jpg" class="lazyload" alt="Slide 3"></div>
+
+    <!-- 본문 내용 -->
+    <div id="content">
+        <div class="banner">
+            <span>광주새마을금고 이사장 후보 - 민 경 남</span>
+        </div>
+        
+        <div class="slider-container" id="slider">
+            <div class="slides">
+                <div class="slide"><img src="low-quality-placeholder1.jpg" data-src="image1.jpg" class="lazyload" alt="Slide 1"></div>
+                <div class="slide"><img src="low-quality-placeholder2.jpg" data-src="image2.jpg" class="lazyload" alt="Slide 2"></div>
+                <div class="slide"><img src="low-quality-placeholder3.jpg" data-src="image3.jpg" class="lazyload" alt="Slide 3"></div>
+            </div>
         </div>
     </div>
     
@@ -65,8 +94,11 @@
                 img.onload = function() {
                     loadedImages++;
                     if (loadedImages === lazyImages.length) {
-                        document.body.style.display = "block"; // 모든 이미지 로딩 후 화면 표시
-                        startAutoSlide();
+                        setTimeout(() => {
+                            document.getElementById("loading-screen").style.display = "none"; // 로딩 화면 숨김
+                            document.getElementById("content").style.display = "block"; // 본문 표시
+                            startAutoSlide();
+                        }, 500); // 0.5초 딜레이 후 부드럽게 전환
                     }
                 };
                 img.src = img.getAttribute("data-src");
@@ -111,5 +143,6 @@
             if (startX - endX < -50) moveSlide(-1);
         });
     </script>
+
 </body>
 </html>
